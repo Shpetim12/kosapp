@@ -85,6 +85,28 @@ export function ListingForm() {
       return;
     }
 
+    const contactPhone = String(form.get("contact_phone") ?? "").trim();
+    if (!/^\+383[0-9]{8}$/.test(contactPhone)) {
+      setLoading(false);
+      setProgress(0);
+      setStep(2);
+      setMessage("Shkruaj numrin në formatin +383XXXXXXXX.");
+      return;
+    }
+
+    const { error: profileError } = await supabase
+      .from("profiles")
+      .update({ phone: contactPhone })
+      .eq("id", user.id);
+
+    if (profileError) {
+      setLoading(false);
+      setProgress(0);
+      setStep(2);
+      setMessage(profileError.message);
+      return;
+    }
+
     const coords = coordinatesFor(city, neighborhood);
     const selectedAmenities = Object.fromEntries(amenities.map((item) => [item.key, form.get(item.key) === "on"]));
 
@@ -221,6 +243,22 @@ export function ListingForm() {
       </section>
 
       <section className={step === 2 ? "space-y-5" : "hidden"}>
+        <div className="rounded-2xl border border-brand-100 bg-brand-50 p-4">
+          <label className="block space-y-2">
+            <span className="label">Numri për kontakt</span>
+            <input
+              name="contact_phone"
+              className="field"
+              placeholder="+38344123456"
+              pattern="^\+383[0-9]{8}$"
+              required
+            />
+          </label>
+          <p className="mt-2 text-xs font-semibold text-brand-800">
+            Ky numër nuk shfaqet publikisht. Shfaqet vetëm pasi ti e aprovon kërkesën e qiramarrësit.
+          </p>
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-3">
           <label className="block space-y-2">
             <span className="label">Dhoma gjumi</span>

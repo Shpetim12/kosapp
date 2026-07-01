@@ -13,7 +13,27 @@ export async function requestContact(listingId: string) {
     redirect(`/login?next=/listings/${listingId}`);
   }
 
-  const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
+  let { data: profile } = await supabase.from("profiles").select("role, full_name").eq("id", user.id).maybeSingle();
+
+  if (!profile) {
+    const { data: createdProfile, error: createProfileError } = await supabase
+      .from("profiles")
+      .insert({
+        id: user.id,
+        role: "renter",
+        full_name: user.user_metadata?.full_name ?? user.email?.split("@")[0] ?? "Qiramarrës",
+        phone: "+38300000000"
+      })
+      .select("role, full_name")
+      .maybeSingle();
+
+    if (createProfileError) {
+      throw new Error(createProfileError.message);
+    }
+
+    profile = createdProfile;
+  }
+
   const { data: listing } = await supabase
     .from("listings")
     .select("id, landlord_id, status")
@@ -25,10 +45,19 @@ export async function requestContact(listingId: string) {
     throw new Error("Vetëm qiramarrësit mund të kërkojnë kontakt për shpallje aktive.");
   }
 
-  const { error } = await supabase.from("contact_requests").insert({
-    listing_id: listingId,
-    renter_id: user.id
-  });
+  const { error } = await supabase
+    .from("contact_requests")
+    .upsert(
+      {
+        listing_id: listingId,
+        renter_id: user.id,
+        status: "pending"
+      },
+      {
+        onConflict: "listing_id,renter_id",
+        ignoreDuplicates: true
+      }
+    );
 
   if (error && error.code !== "23505") {
     throw new Error(error.message);
