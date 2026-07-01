@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --brand: #16a34a;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+.field {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-100;
+}
+
+.label {
+  @apply text-sm font-semibold text-slate-700;
+}
+
+.button-primary {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 hover:scale-[1.02] hover:bg-brand-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:hover:scale-100;
+}
+
+.button-secondary {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition-all duration-200 hover:scale-[1.02] hover:border-brand-600 hover:text-brand-700 disabled:cursor-not-allowed disabled:text-slate-400 disabled:hover:scale-100;
+}
+
+.surface-card {
+  @apply rounded-2xl border border-slate-100 bg-white shadow-sm;
+}
+
+.focus-card {
+  @apply rounded-2xl border border-slate-100 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.35)];
+}
+
+.page-shell {
+  @apply mx-auto max-w-6xl px-4 pb-24 pt-6 sm:px-6 lg:px-8 lg:pb-10;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.35s ease-in-out;
+}
