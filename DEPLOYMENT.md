@@ -19,7 +19,7 @@ If Git is installed, from the project root:
 ```powershell
 git init
 git add .
-git commit -m "Initial KosBanesa MVP"
+git commit -m "Initial Strehë MVP"
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 git push -u origin main

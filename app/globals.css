@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --brand: #16a34a;
+  color-scheme: dark;
+  --brand: #e8b04b;
+  --bg-primary: #0f0f1a;
+  --bg-card: #1a1a2e;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
 }
 
 body {
-  background: #f8fafc;
-  color: #0f172a;
+  background: #0f0f1a;
+  color: #ffffff;
   overflow-x: hidden;
 }
 
@@ -20,27 +24,27 @@ textarea {
 }
 
 .field {
-  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-100;
+  @apply w-full rounded-xl border border-white/10 bg-[#1a1a2e] px-4 py-3 text-base text-white outline-none transition-all duration-200 placeholder:text-[#a0a0b0] focus:border-[#e8b04b] focus:ring-4 focus:ring-[#e8b04b]/20;
 }
 
 .label {
-  @apply text-sm font-semibold text-slate-700;
+  @apply text-sm font-semibold text-[#a0a0b0];
 }
 
 .button-primary {
-  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 hover:scale-[1.02] hover:bg-brand-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:hover:scale-100;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#e8b04b] px-5 py-3 text-sm font-bold text-[#0f0f1a] shadow-sm transition-all duration-200 hover:scale-[1.02] hover:bg-[#d4a043] disabled:cursor-not-allowed disabled:bg-[#a0a0b0] disabled:hover:scale-100;
 }
 
 .button-secondary {
-  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition-all duration-200 hover:scale-[1.02] hover:border-brand-600 hover:text-brand-700 disabled:cursor-not-allowed disabled:text-slate-400 disabled:hover:scale-100;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:border-[#e8b04b] disabled:cursor-not-allowed disabled:text-[#a0a0b0] disabled:hover:scale-100;
 }
 
 .surface-card {
-  @apply rounded-2xl border border-slate-100 bg-white shadow-sm;
+  @apply rounded-2xl border border-white/10 bg-[#1a1a2e] shadow-sm;
 }
 
 .focus-card {
-  @apply rounded-2xl border border-slate-100 bg-white shadow-[0_20px_60px_-35px_rgba(15,23,42,0.35)];
+  @apply rounded-2xl border border-white/10 bg-[#1a1a2e] shadow-[0_4px_24px_rgba(232,176,75,0.08)];
 }
 
 .page-shell {

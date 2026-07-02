@@ -30,7 +30,7 @@ function PillSelect({
       {options.map((option) => (
         <label key={option.value} className="cursor-pointer">
           <input className="peer sr-only" type="radio" name={name} value={option.value} defaultChecked={value === option.value} />
-          <span className="inline-flex min-h-10 items-center rounded-full border border-slate-200 bg-white px-4 text-sm font-bold text-slate-600 transition peer-checked:border-brand-600 peer-checked:bg-brand-50 peer-checked:text-brand-700">
+          <span className="inline-flex min-h-10 items-center rounded-full border border-white/10 bg-[#1a1a2e] px-4 text-sm font-bold text-[#a0a0b0] transition peer-checked:border-[#e8b04b] peer-checked:bg-[#e8b04b]/10 peer-checked:text-[#e8b04b]">
             {option.label}
           </span>
         </label>
@@ -100,9 +100,9 @@ function FilterFields({ values, onDone }: { values: ListingFilterValues; onDone?
           options={[{ value: "", label: "Të gjitha" }, ...propertyTypes.map((item) => ({ value: item.value, label: item.label }))]}
         />
       </div>
-      <label className="flex min-h-12 items-center justify-between rounded-2xl border border-slate-200 bg-white px-4">
-        <span className="text-sm font-bold text-slate-700">E mobiluar</span>
-        <select name="furnished" className="bg-transparent text-sm font-bold text-slate-700 outline-none" defaultValue={values.furnished ?? ""}>
+      <label className="flex min-h-12 items-center justify-between rounded-2xl border border-white/10 bg-[#1a1a2e] px-4">
+        <span className="text-sm font-bold text-white">E mobiluar</span>
+        <select name="furnished" className="bg-transparent text-sm font-bold text-[#a0a0b0] outline-none" defaultValue={values.furnished ?? ""}>
           <option value="">Të gjitha</option>
           {furnishedOptions.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
         </select>
@@ -130,30 +130,30 @@ export function ListingFilters({ values }: { values: ListingFilterValues }) {
 
   return (
     <>
-      <button type="button" className="button-secondary sticky top-20 z-20 mb-4 w-full bg-white lg:hidden" onClick={() => setOpen(true)}>
+      <button type="button" className="button-secondary sticky top-20 z-20 mb-4 w-full lg:hidden" onClick={() => setOpen(true)}>
         <SlidersHorizontal size={16} />
         Filtro shpalljet
       </button>
 
-      <form className="hidden gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:sticky lg:top-24 lg:grid">
+      <form className="hidden gap-4 rounded-2xl border border-white/8 bg-[#1a1a2e] p-5 shadow-sm lg:sticky lg:top-24 lg:grid">
         <div>
-          <h2 className="text-lg font-black text-slate-950">Filtrat</h2>
-          <p className="text-sm text-slate-500">Gjej banesën që të përshtatet.</p>
+          <h2 className="text-lg font-black text-white">Filtrat</h2>
+          <p className="text-sm text-[#a0a0b0]">Gjej banesën që të përshtatet.</p>
         </div>
         <FilterFields values={values} />
       </form>
 
       {open ? (
-        <div className="fixed inset-0 z-50 bg-slate-950/40 lg:hidden">
-          <div className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto rounded-t-3xl bg-white p-5 shadow-2xl">
+        <div className="fixed inset-0 z-50 bg-black/40 lg:hidden">
+          <div className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto rounded-t-3xl bg-[#0f0f1a] p-5 shadow-2xl">
             <div className="mb-5 flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-black text-slate-950">Filtrat</h2>
-                <p className="text-sm text-slate-500">Përshtat kërkimin</p>
+                <h2 className="text-xl font-black text-white">Filtrat</h2>
+                <p className="text-sm text-[#a0a0b0]">Përshtat kërkimin</p>
               </div>
               <button
                 type="button"
-                className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200"
+                className="grid h-11 w-11 place-items-center rounded-2xl border border-white/15"
                 onClick={() => setOpen(false)}
                 aria-label="Mbyll filtrat"
               >

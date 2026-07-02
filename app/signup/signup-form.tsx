@@ -73,19 +73,19 @@ export function SignupForm({ initialRole }: { initialRole: UserRole }) {
   }
 
   return (
-    <main className="grid min-h-[calc(100vh-64px)] place-items-center bg-gradient-to-b from-green-50 to-white px-4 py-10">
+    <main className="grid min-h-[calc(100vh-64px)] place-items-center bg-[#0f0f1a] px-4 py-10">
       <form onSubmit={onSubmit} className={`focus-card w-full max-w-lg space-y-6 p-6 sm:p-8 ${message ? "animate-shake" : ""}`}>
         <div className="text-center">
-          <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-600 text-white shadow-lg shadow-green-600/20">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[#e8b04b] text-[#0f0f1a] shadow-lg shadow-[#e8b04b]/20">
             <Home size={24} />
           </div>
-          <h1 className="mt-5 text-3xl font-black text-slate-950">Krijo llogari</h1>
-          <p className="mt-2 text-sm text-slate-600">Dy hapa të thjeshtë për të filluar.</p>
+          <h1 className="mt-5 text-3xl font-black text-white">Krijo llogari</h1>
+          <p className="mt-2 text-sm text-[#a0a0b0]">Dy hapa të thjeshtë për të filluar.</p>
         </div>
 
         <div className="grid grid-cols-2 gap-2">
           {[1, 2].map((item) => (
-            <div key={item} className={`h-2 rounded-full ${step >= item ? "bg-brand-600" : "bg-slate-200"}`} />
+            <div key={item} className={`h-2 rounded-full ${step >= item ? "bg-[#e8b04b]" : "bg-white/10"}`} />
           ))}
         </div>
 
@@ -104,7 +104,7 @@ export function SignupForm({ initialRole }: { initialRole: UserRole }) {
               <input className="field" type="password" minLength={8} value={password} onChange={(event) => setPassword(event.target.value)} required />
               <div className="grid grid-cols-4 gap-1">
                 {[1, 2, 3, 4].map((item) => (
-                  <span key={item} className={`h-1.5 rounded-full ${passwordScore >= item ? "bg-brand-600" : "bg-slate-200"}`} />
+                  <span key={item} className={`h-1.5 rounded-full ${passwordScore >= item ? "bg-[#e8b04b]" : "bg-white/10"}`} />
                 ))}
               </div>
             </label>
@@ -112,7 +112,7 @@ export function SignupForm({ initialRole }: { initialRole: UserRole }) {
               <span className="label">Konfirmo fjalëkalimin</span>
               <input className="field" type="password" minLength={8} value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} required />
             </label>
-            {message ? <p className="rounded-xl bg-red-50 p-3 text-sm font-medium text-red-700">{message}</p> : null}
+            {message ? <p className="rounded-xl bg-red-500/10 p-3 text-sm font-medium text-red-400">{message}</p> : null}
             <button type="button" className="button-primary w-full" onClick={goNext}>
               Tjetër
             </button>
@@ -129,16 +129,16 @@ export function SignupForm({ initialRole }: { initialRole: UserRole }) {
                   type="button"
                   onClick={() => setRole(item.value as UserRole)}
                   className={`min-h-36 rounded-2xl border p-4 text-left transition-all duration-200 hover:scale-[1.02] ${
-                    role === item.value ? "border-brand-600 bg-brand-50 ring-4 ring-brand-100" : "border-slate-200 bg-white"
+                    role === item.value ? "border-[#e8b04b] bg-[#e8b04b]/10 ring-4 ring-[#e8b04b]/20" : "border-white/10 bg-[#1a1a2e]"
                   }`}
                 >
-                  <item.icon className={role === item.value ? "text-brand-700" : "text-slate-500"} size={26} />
-                  <p className="mt-4 font-black text-slate-950">{item.title}</p>
-                  <p className="mt-1 text-sm text-slate-600">{item.text}</p>
+                  <item.icon className={role === item.value ? "text-[#e8b04b]" : "text-[#a0a0b0]"} size={26} />
+                  <p className="mt-4 font-black text-white">{item.title}</p>
+                  <p className="mt-1 text-sm text-[#a0a0b0]">{item.text}</p>
                 </button>
               ))}
             </div>
-            {message ? <p className="rounded-xl bg-brand-50 p-3 text-sm font-medium text-brand-700">{message}</p> : null}
+            {message ? <p className="rounded-xl bg-[#e8b04b]/10 p-3 text-sm font-medium text-[#e8b04b]">{message}</p> : null}
             <div className="grid gap-3 sm:grid-cols-2">
               <button type="button" className="button-secondary w-full" onClick={() => setStep(1)}>
                 Kthehu
@@ -151,9 +151,9 @@ export function SignupForm({ initialRole }: { initialRole: UserRole }) {
           </div>
         )}
 
-        <p className="text-center text-sm text-slate-600">
+        <p className="text-center text-sm text-[#a0a0b0]">
           Ke llogari?{" "}
-          <Link href="/login" className="font-black text-brand-700">
+          <Link href="/login" className="font-black text-[#e8b04b]">
             Hyr
           </Link>
         </p>

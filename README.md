@@ -1,6 +1,6 @@
-# KosBanesa
+# Strehë
 
-KosBanesa is a mobile-first rental listings web app for Kosovo focused on verified listings, transparent browsing, admin approval, and contact request gating.
+Strehë is a mobile-first rental listings web app for Kosovo focused on verified listings, transparent browsing, admin approval, and contact request gating.
 
 ## Tech Stack
 

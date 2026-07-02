@@ -54,9 +54,9 @@ export default async function ListingsPage({ searchParams }: { searchParams: Par
     <main className="page-shell">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-black uppercase tracking-wide text-brand-700">Shpallje aktive</p>
-          <h1 className="mt-1 text-3xl font-black text-slate-950 sm:text-4xl">Banesa me qira</h1>
-          <p className="mt-2 text-sm text-slate-600">{listingCards.length} shpallje të gjetura</p>
+          <p className="text-sm font-black uppercase tracking-wide text-[#e8b04b]">Shpallje aktive</p>
+          <h1 className="mt-1 text-3xl font-black text-white sm:text-4xl">Banesa me qira</h1>
+          <p className="mt-2 text-sm text-[#a0a0b0]">{listingCards.length} shpallje të gjetura</p>
         </div>
       </div>
 
@@ -73,11 +73,11 @@ export default async function ListingsPage({ searchParams }: { searchParams: Par
           ) : (
             <div className="focus-card grid min-h-80 place-items-center p-8 text-center">
               <div>
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-brand-50 text-brand-700">
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-[#e8b04b]/10 text-[#e8b04b]">
                   <Building2 size={30} />
                 </div>
-                <h2 className="mt-5 text-2xl font-black text-slate-950">Nuk u gjetën shpallje për kriteret e zgjedhura.</h2>
-                <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600">Provo të ndryshosh qytetin, çmimin ose filtrat e tjerë.</p>
+                <h2 className="mt-5 text-2xl font-black text-white">Nuk u gjetën shpallje për kriteret e zgjedhura.</h2>
+                <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[#a0a0b0]">Provo të ndryshosh qytetin, çmimin ose filtrat e tjerë.</p>
                 <Link href="/listings" className="button-primary mt-6">
                   Pastro filtrat
                 </Link>

@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "KosBanesa",
-  description: "Banesa me verifikim dhe transparencë për Kosovë."
+  title: "Strehë",
+  description: "Strehë - Platformë e verifikuar për qira në Kosovë."
 };
 
 export const dynamic = "force-dynamic";

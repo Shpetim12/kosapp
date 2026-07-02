@@ -2,11 +2,11 @@ import { listingStatuses } from "@/lib/constants";
 
 export function StatusPill({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    active: "bg-brand-50 text-brand-700",
-    pending_review: "bg-amber-50 text-amber-700",
-    rejected: "bg-red-50 text-red-700",
-    rented: "bg-slate-100 text-slate-700",
-    expired: "bg-slate-100 text-slate-700"
+    active: "bg-[#e8b04b]/10 text-[#e8b04b]",
+    pending_review: "bg-amber-500/10 text-amber-400",
+    rejected: "bg-red-500/10 text-red-400",
+    rented: "bg-white/5 text-[#a0a0b0]",
+    expired: "bg-white/5 text-[#a0a0b0]"
   };
 
   return (

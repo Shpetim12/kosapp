@@ -76,23 +76,23 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
     <main className="page-shell">
       <section className="mb-6">
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-black text-brand-700">Aktive</span>
+          <span className="rounded-full bg-[#e8b04b]/10 px-3 py-1 text-xs font-black text-[#e8b04b]">Aktive</span>
           <VerifiedBadge verified={publicLandlord?.is_verified_landlord} />
-          <span className="text-sm font-medium text-slate-500">Vendndodhje e përafërt, jo adresë e saktë</span>
+          <span className="text-sm font-medium text-[#a0a0b0]">Vendndodhje e përafërt, jo adresë e saktë</span>
         </div>
 
-        <div className="overflow-hidden rounded-3xl bg-slate-100">
+        <div className="overflow-hidden rounded-3xl bg-[#1a1a2e]">
           <div className="flex snap-x gap-2 overflow-x-auto md:grid md:grid-cols-[1.45fr_0.9fr] md:overflow-visible">
             <div className="relative aspect-[4/3] w-full min-w-full snap-start md:min-w-0">
               {photos[0] ? (
                 <Image src={getPublicPhotoUrl(photos[0].storage_path)} alt={typedListing.title} fill priority className="object-cover" sizes="(min-width: 1024px) 60vw, 100vw" />
               ) : (
-                <div className="grid h-full place-items-center text-slate-500">Pa foto</div>
+                <div className="grid h-full place-items-center text-[#a0a0b0]">Pa foto</div>
               )}
             </div>
             <div className="hidden grid-cols-2 gap-2 md:grid">
               {photos.slice(1, 5).map((photo) => (
-                <div key={photo.id} className="relative min-h-0 overflow-hidden bg-slate-200">
+                <div key={photo.id} className="relative min-h-0 overflow-hidden bg-[#1a1a2e]">
                   <Image src={getPublicPhotoUrl(photo.storage_path)} alt={typedListing.title} fill className="object-cover" sizes="20vw" />
                 </div>
               ))}
@@ -107,7 +107,7 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
         {photos.length > 1 ? (
           <div className="mt-3 flex justify-center gap-1.5 md:hidden">
             {photos.map((photo) => (
-              <span key={photo.id} className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+              <span key={photo.id} className="h-1.5 w-1.5 rounded-full bg-white/20" />
             ))}
           </div>
         ) : null}
@@ -116,16 +116,16 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
       <div className="grid gap-6 lg:grid-cols-[1fr_360px] lg:items-start">
         <section className="space-y-5">
           <div className="surface-card p-5 sm:p-7">
-            <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{typedListing.title}</h1>
-            <p className="mt-3 flex items-center gap-2 text-base font-bold text-slate-600">
-              <MapPin size={18} className="text-brand-600" />
+            <h1 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{typedListing.title}</h1>
+            <p className="mt-3 flex items-center gap-2 text-base font-bold text-[#a0a0b0]">
+              <MapPin size={18} className="text-[#e8b04b]" />
               {typedListing.neighborhood}, {typedListing.city}
             </p>
-            <p className="mt-5 whitespace-pre-line text-base leading-8 text-slate-700">{typedListing.description}</p>
+            <p className="mt-5 whitespace-pre-line text-base leading-8 text-[#a0a0b0]">{typedListing.description}</p>
           </div>
 
           <div className="surface-card p-5 sm:p-7">
-            <h2 className="text-xl font-black text-slate-950">Detajet</h2>
+            <h2 className="text-xl font-black text-white">Detajet</h2>
             <dl className="mt-5 grid gap-3 sm:grid-cols-2">
               {[
                 ["Tipi", propertyType],
@@ -136,9 +136,9 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
                 ["Sipërfaqja", `${typedListing.size_m2} m²`],
                 ["Në dispozicion nga", typedListing.available_from]
               ].map(([label, value]) => (
-                <div key={label} className="rounded-2xl bg-slate-50 p-4">
-                  <dt className="text-xs font-black uppercase tracking-wide text-slate-500">{label}</dt>
-                  <dd className="mt-1 font-black text-slate-950">{value}</dd>
+                <div key={label} className="rounded-2xl bg-white/5 p-4">
+                  <dt className="text-xs font-black uppercase tracking-wide text-[#a0a0b0]">{label}</dt>
+                  <dd className="mt-1 font-black text-white">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -146,10 +146,10 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
 
           {activeAmenities.length ? (
             <div className="surface-card p-5 sm:p-7">
-              <h2 className="text-xl font-black text-slate-950">Komoditetet</h2>
+              <h2 className="text-xl font-black text-white">Komoditetet</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {activeAmenities.map((item) => (
-                  <span key={item.key} className="inline-flex min-h-10 items-center gap-2 rounded-full bg-brand-50 px-4 text-sm font-bold text-brand-700">
+                  <span key={item.key} className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[#e8b04b]/10 px-4 text-sm font-bold text-[#e8b04b]">
                     <CheckCircle2 size={16} />
                     {item.label}
                   </span>
@@ -158,10 +158,10 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
             </div>
           ) : null}
 
-          <section className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
+          <section className="overflow-hidden rounded-2xl border border-white/8 bg-[#1a1a2e] shadow-sm">
             <div className="p-5">
-              <h2 className="text-xl font-black text-slate-950">Harta e përafërt</h2>
-              <p className="mt-1 text-sm text-slate-600">{typedListing.neighborhood}, {typedListing.city}</p>
+              <h2 className="text-xl font-black text-white">Harta e përafërt</h2>
+              <p className="mt-1 text-sm text-[#a0a0b0]">{typedListing.neighborhood}, {typedListing.city}</p>
             </div>
             {typedListing.lat && typedListing.lng ? (
               <iframe
@@ -174,7 +174,7 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
           </section>
 
           <details className="surface-card p-5">
-            <summary className="cursor-pointer list-none text-sm font-black text-slate-700">Raporto shpalljen</summary>
+            <summary className="cursor-pointer list-none text-sm font-black text-[#a0a0b0]">Raporto shpalljen</summary>
             <form action={reportAction} className="mt-4 space-y-3">
               <textarea name="reason" className="field min-h-24" placeholder="P.sh. foto të pasakta, çmim mashtrues, kontakt i dyshimtë" required />
               <button className="button-secondary w-full">Dërgo raportimin</button>
@@ -184,14 +184,14 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
 
         <aside className="lg:sticky lg:top-24">
           <section className="focus-card p-5">
-            <p className="text-3xl font-black text-slate-950">{typedListing.price} €/muaj</p>
-            <div className="mt-4 grid grid-cols-3 gap-2 text-center text-sm font-bold text-slate-600">
-              <span className="rounded-2xl bg-slate-50 p-3"><BedDouble className="mx-auto mb-1" size={18} />{typedListing.bedrooms}</span>
-              <span className="rounded-2xl bg-slate-50 p-3"><Ruler className="mx-auto mb-1" size={18} />{typedListing.size_m2} m²</span>
-              <span className="rounded-2xl bg-slate-50 p-3"><Calendar className="mx-auto mb-1" size={18} />Gati</span>
+            <p className="text-3xl font-black text-[#e8b04b]">{typedListing.price} €/muaj</p>
+            <div className="mt-4 grid grid-cols-3 gap-2 text-center text-sm font-bold text-[#a0a0b0]">
+              <span className="rounded-2xl bg-white/5 p-3"><BedDouble className="mx-auto mb-1" size={18} />{typedListing.bedrooms}</span>
+              <span className="rounded-2xl bg-white/5 p-3"><Ruler className="mx-auto mb-1" size={18} />{typedListing.size_m2} m²</span>
+              <span className="rounded-2xl bg-white/5 p-3"><Calendar className="mx-auto mb-1" size={18} />Gati</span>
             </div>
             {isListingOwner ? (
-              <p className="mt-4 rounded-2xl bg-slate-100 p-4 text-sm font-semibold text-slate-700">
+              <p className="mt-4 rounded-2xl bg-white/5 p-4 text-sm font-semibold text-[#a0a0b0]">
                 Kjo është shpallja jote.
               </p>
             ) : !user ? (
@@ -199,11 +199,11 @@ export default async function ListingDetailPage({ params }: { params: { id: stri
                 Hyr për të kontaktuar
               </Link>
             ) : !canRequestContact ? (
-              <p className="mt-4 rounded-2xl bg-slate-100 p-4 text-sm font-semibold text-slate-700">
+              <p className="mt-4 rounded-2xl bg-white/5 p-4 text-sm font-semibold text-[#a0a0b0]">
                 Vetëm qiramarrësit mund të kërkojnë kontakt.
               </p>
             ) : request?.status === "approved" ? (
-              <div className="mt-4 rounded-2xl bg-brand-50 p-4 text-brand-800">
+              <div className="mt-4 rounded-2xl bg-[#e8b04b]/10 p-4 text-[#e8b04b]">
                 <p className="font-black">Kërkesa u aprovua</p>
                 <p className="mt-2 font-black">{approvedLandlordName}</p>
                 <p className="mt-1 text-sm font-semibold">{landlordProfile?.phone}</p>
